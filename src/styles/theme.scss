@@ -1,0 +1,52 @@
+.v-btn {
+	box-shadow: none !important;
+
+	&.no-active:before {
+		content: none;
+	}
+}
+
+.v-btn__overlay {
+	all: initial !important; // Reset all properties to their initial values
+}
+
+
+.theme-font {
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 200;
+	letter-spacing: 0.2em;
+	line-height: 26px;
+	margin-bottom: 10px;
+	text-align: start;
+	color: rgba(0, 0, 0, 0.8);
+}
+
+.theme-font-bold {
+	font-weight: 700;
+}
+
+.theme-font-italic {
+	font-style: italic;
+}
+
+.theme-font-bold-italic {
+	font-weight: 700;
+	font-style: italic;
+
+}
+
+.theme-p-text {
+	color: #5F6980;
+	font-family: "Inter", sans-serif;
+		font-size: 16px;
+		font-style: normal;
+		font-weight: 400;
+		letter-spacing: 0em;
+		line-height: 1.5em;
+		text-align: start;
+		text-decoration: none;
+			text-transform: none;
+
+
+}

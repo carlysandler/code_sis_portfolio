@@ -1,0 +1,11 @@
+@import '~typeface-inter/inter.css';
+
+/* Buttons */
+.v-btn {
+  text-transform: unset;
+
+  &:not(.v-btn--round).v-size--default {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}

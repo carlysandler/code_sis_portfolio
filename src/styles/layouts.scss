@@ -1,0 +1,110 @@
+@import './helpers.scss';
+@import './styleguide.scss';
+// Default header padding
+$padding-xs: 16px;
+$padding-sm-and-up: 24px 48px;
+
+$padding-main-xs: 40px 16px 16px;
+$padding-main-sm-and-md: 40px;
+$padding-main-lg: 80px 40px 40px;
+$padding-main-xl-and-up: 80px;
+
+$padding-hero-xs: 40px 16px;
+$padding-hero-sm-md: 56px 40px 80px;
+$padding-hero-lg: 80px 40px;
+$padding-hero-xl-and-up: 80px;
+
+
+$icon-color-root: rgb(40, 40, 40);
+$border-color-root: rgb(194, 194, 194);
+
+html,
+body {
+  box-sizing: border-box;
+  background-color: var(--v-theme-background);
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+h6 {
+  margin: 0;
+  padding: 0;
+    font-family: "Inter-SemiBold", "Inter", "Inter Placeholder", sans-serif;
+      font-size: 28px;
+      font-style: normal;
+      font-weight: 500;
+      letter-spacing: -0.6px;
+      line-height: 1.3em;
+      /* Adjust spacing between paragraphs */
+      text-align: start;
+      text-decoration: none;
+      text-transform: none;
+}
+
+
+.outer-wrapper {
+  gap: 0px;
+  padding: $padding-hero-xs;
+  align-items: center;
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  height: auto;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+
+  @media (min-width: map-get($grid-breakpoints, 'sm')) {
+    padding: $padding-hero-sm-md;
+    gap: 64px;
+  }
+
+  @media (min-width: map-get($grid-breakpoints, 'lg')) {
+    padding: $padding-hero-lg;
+  }
+
+  @media (min-width: map-get($grid-breakpoints, 'xl')) {
+    padding: $padding-hero-xl-and-up;
+  }
+}
+
+.inner-wrapper {
+  place-content: center;
+  align-items: center;
+  display: flex;
+  flex: 0 0 auto;
+  flex-flow: column;
+  gap: 32px;
+  height: auto;
+  overflow: hidden;
+  padding: 0px;
+  position: relative;
+  width: 100%;
+
+  @media (min-width: map-get($grid-breakpoints, 'sm')) {
+    gap: 51px;
+  }
+
+  @media (min-width: map-get($grid-breakpoints, 'ms')) {
+    gap: 40px;
+  }
+
+  @media (min-width: map-get($grid-breakpoints, 'lg')) {
+    width: 1280px;
+  }
+
+}

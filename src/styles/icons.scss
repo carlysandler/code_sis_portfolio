@@ -1,0 +1,27 @@
+$icons: (
+  'brand': '@/assets/code-sis-logo.png'
+);
+
+@each $icon-name, $icon-src in $icons {
+  .v-icon.logo-#{$icon-name} {
+    &:before {
+      content: '\00a0\00a0\00a0\00a0';
+      background-image: $icon-src;
+      background-size: contain;
+      background-position: center;
+      transform: translateX(-6%);
+    }
+  }
+
+  .v-icon.logo-#{$icon-name}-variant {
+    &:before {
+      content: '\00a0\00a0\00a0\00a0';
+      background-color: currentColor;
+      mask-image: $icon-src;
+      -webkit-mask-image: $icon-src;
+      mask-size: contain;
+      mask-position: center;
+      transform: translateX(-6%);
+    }
+  }
+}
