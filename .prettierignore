@@ -1,0 +1,27 @@
+# Build output
+dist
+build
+coverage
+
+# Dependencies
+node_modules
+pnpm-lock.yaml
+
+# Logs
+*.log
+
+# Editor directories
+.idea
+.vscode
+
+# Generated files
+components.d.ts
+auto-imports.d.ts
+
+# Assets
+public
+src/assets
+
+# Cache
+.eslintcache
+.stylelintcache

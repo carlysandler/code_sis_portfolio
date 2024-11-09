@@ -1,16 +1,32 @@
-import type { DirectiveBinding } from 'vue'
-export default {
-	// Directive definition
-	inserted(el: HTMLElement, binding: DirectiveBinding) {
-		// When the element is inserted into the DOM
-		el.style.transition = 'transform 0.5s ease'; // Define the transition effect
-		el.style.transform = 'scale(0.5)'; // Start with a scale of 0.5
+import type { DirectiveBinding, ObjectDirective } from 'vue'
 
-		// Set a delay to apply the transition effect after the element is rendered
-		setTimeout(() => {
-			el.style.transform = ''; // Reset the transform property to trigger the transition
-			el.style.borderRadius = '50%'; // Apply circular shape
-			el.style.boxShadow = '0px 0px 50px rgba(0, 0, 0, 0.5)'; // Apply shadow effect
-		}, 100);
-	},
-};
+// Define an interface for the extended HTMLElement
+interface RouteChangeElement extends HTMLElement {
+  _routeChangeAnimationHandler?: (event: Event) => void
+}
+
+const routeChangeDirective: ObjectDirective<RouteChangeElement> = {
+  mounted(el: RouteChangeElement, _binding: DirectiveBinding) {
+    const handleRouteChange = () => {
+      el.classList.add('route-change-animation')
+      setTimeout(() => {
+        el.classList.remove('route-change-animation')
+      }, 1000)
+    }
+
+    el._routeChangeAnimationHandler = handleRouteChange
+    window.addEventListener('routechange', handleRouteChange)
+  },
+
+  unmounted(el: RouteChangeElement) {
+    if (el._routeChangeAnimationHandler) {
+      window.removeEventListener(
+        'routechange',
+        el._routeChangeAnimationHandler
+      )
+      delete el._routeChangeAnimationHandler
+    }
+  }
+}
+
+export default routeChangeDirective

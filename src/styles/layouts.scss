@@ -14,7 +14,6 @@ $padding-hero-sm-md: 56px 40px 80px;
 $padding-hero-lg: 80px 40px;
 $padding-hero-xl-and-up: 80px;
 
-
 $icon-color-root: rgb(40, 40, 40);
 $border-color-root: rgb(194, 194, 194);
 
@@ -41,18 +40,18 @@ p {
 h6 {
   margin: 0;
   padding: 0;
-    font-family: "Inter-SemiBold", "Inter", "Inter Placeholder", sans-serif;
-      font-size: 28px;
-      font-style: normal;
-      font-weight: 500;
-      letter-spacing: -0.6px;
-      line-height: 1.3em;
-      /* Adjust spacing between paragraphs */
-      text-align: start;
-      text-decoration: none;
-      text-transform: none;
+  font-family: 'Inter-SemiBold', 'Inter', 'Inter Placeholder',
+    sans-serif;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: -0.6px;
+  line-height: 1.3em;
+  /* Adjust spacing between paragraphs */
+  text-align: start;
+  text-decoration: none;
+  text-transform: none;
 }
-
 
 .outer-wrapper {
   gap: 0px;
@@ -106,5 +105,44 @@ h6 {
   @media (min-width: map-get($grid-breakpoints, 'lg')) {
     width: 1280px;
   }
+}
 
+.route-change-animation {
+  /* Initial styles for the circle */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50px;
+  /* Initial small size */
+  height: 50px;
+  /* Initial small size */
+  border-radius: 50%;
+  background-color: #ffffff;
+  /* Background color of the circle */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  /* Shadow effect */
+
+  /* Animation effect */
+  animation: revealContent 1s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+
+@keyframes revealContent {
+  0% {
+    width: 50px;
+    /* Initial small size */
+    height: 50px;
+    /* Initial small size */
+    opacity: 1;
+    /* Start fully opaque */
+  }
+
+  100% {
+    width: 100%;
+    /* Fully expanded */
+    height: 100%;
+    /* Fully expanded */
+    opacity: 0;
+    /* Fade out */
+  }
 }
