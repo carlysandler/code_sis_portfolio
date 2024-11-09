@@ -107,42 +107,54 @@ h6 {
   }
 }
 
-.route-change-animation {
-  /* Initial styles for the circle */
+.route-transition-overlay {
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 50px;
-  /* Initial small size */
-  height: 50px;
-  /* Initial small size */
-  border-radius: 50%;
-  background-color: #ffffff;
-  /* Background color of the circle */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  /* Shadow effect */
-
-  /* Animation effect */
-  animation: revealContent 1s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.8),
+    rgba(255, 255, 255, 0.9)
+  );
+  backdrop-filter: blur(4px);
+  box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 100;
+  transition: all 0.3s ease;
+  &.active {
+    opacity: 1;
+  }
 }
 
-@keyframes revealContent {
-  0% {
-    width: 50px;
-    /* Initial small size */
-    height: 50px;
-    /* Initial small size */
-    opacity: 1;
-    /* Start fully opaque */
+.route-content-container {
+  min-height: 100%;
+  position: relative;
+  &.entering {
+    animation: slideInContent 0.3s ease forwards;
   }
+  &.exiting {
+    animation: slideOutContent 0.3s ease forwards;
+  }
+}
 
-  100% {
-    width: 100%;
-    /* Fully expanded */
-    height: 100%;
-    /* Fully expanded */
+@keyframes slideInContent {
+  from {
+    transform: translateY(10px);
     opacity: 0;
-    /* Fade out */
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutContent {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-10px);
+    opacity: 0;
   }
 }
