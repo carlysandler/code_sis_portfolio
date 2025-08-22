@@ -5,6 +5,7 @@ import vueJsx from '@vitejs/plugin-vue-jsx'
 import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
 import Components from 'unplugin-vue-components/vite'
 import { VuetifyResolver } from 'unplugin-vue-components/resolvers'
+
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
